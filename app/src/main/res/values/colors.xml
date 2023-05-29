@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color1" >#F5CB7A</color>
+    <color name="color2">#F8EDC5</color>
+    <color name="text_color1">#1C1B1F</color>
+    <color name="text_color2">#7D6D5C</color>
+    <color name="border_color1">#79747E</color>
+    <color name="border_color2">#BCB4A4</color>
+    <color name="icon_item_color1">#292D32</color>
+    <color name="icon_item_color2">#7D6D5C</color>
+    <color name="item_card_color1">#F9DBA2</color>
+</resources>

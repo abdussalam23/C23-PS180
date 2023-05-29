@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Masaala" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color1</item>
+        <item name="colorPrimaryVariant">@color/color1</item>
+        <item name="colorOnPrimary">@color/color2</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color1</item>
+        <item name="colorSecondaryVariant">@color/color2</item>
+        <item name="colorOnSecondary">@color/color2</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorButtonNormal">@color/text_color1</item>
+    </style>
+
+    <style name="Theme.Masaala.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Masaala.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Masaala.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

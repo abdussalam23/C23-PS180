@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:contentDescription="home_img"
+        android:src="@drawable/home_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="25dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WELCOME"
+            android:textColor="@color/text_color1"
+            android:textSize="10pt"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/about_apptext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:justificationMode="inter_word"
+            android:text="@string/text_aboutapp"
+            android:textColor="@color/text_color1"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/const_layout1"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="You can find the spices easily using the upload image feature"
+            android:textColor="@color/text_color1"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btn_upload"
+            app:layout_constraintEnd_toEndOf="@+id/btn_upload"
+            app:layout_constraintStart_toStartOf="@+id/btn_upload" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="50dp"
+            android:enabled="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/btn_label_imagesearch"
+            android:textColor="@color/text_color2"
+            app:backgroundTint="@color/color1"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="80dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

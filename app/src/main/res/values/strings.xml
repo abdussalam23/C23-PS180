@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Masaala</string>
+    <string name="text_aboutapp">In this application you can search for various types of spices, you can search for types of spices that exist through a search engine </string>
+    <string name="btn_label_browselist">Browse List</string>
+    <string name="btn_label_imagesearch">Upload Image</string>
+    <string name="btn_label_settings_about">About</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="btn_label_camera">Camera</string>
+    <string name="btn_label_gallery">Gallery</string>
+</resources>
