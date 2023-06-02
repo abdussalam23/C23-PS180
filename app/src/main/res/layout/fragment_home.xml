@@ -76,7 +76,6 @@
             android:id="@+id/btn_upload"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="50dp"
             android:enabled="true"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/btn_label_imagesearch"
