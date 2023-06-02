@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.capstone.masaala.data.dummy.DummyItem
 import com.capstone.masaala.databinding.ItemSpiceBinding
+import com.capstone.masaala.ui.detail.DetailActivity
 
 class DummyAdapter(private val dummyList: ArrayList<DummyItem>) : RecyclerView.Adapter<DummyAdapter.DummyViewHolder>(){
 
@@ -31,11 +32,11 @@ class DummyAdapter(private val dummyList: ArrayList<DummyItem>) : RecyclerView.A
                     .into(ivSpice)
                 tvSpice.text = item.name
                 tvSpiceDesc.text = item.desc
-                /*itemView.setOnClickListener {
+                itemView.setOnClickListener {
                     val mIntent = Intent(itemView.context, DetailActivity::class.java)
                     mIntent.putExtra(EXTRA_DATA, item)
                     itemView.context.startActivity(mIntent)
-                }*/
+                }
             }
         }
     }
