@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.masaala.R
 import com.capstone.masaala.databinding.FragmentHomeBinding
 import com.capstone.masaala.ui.image.ImageActivity
