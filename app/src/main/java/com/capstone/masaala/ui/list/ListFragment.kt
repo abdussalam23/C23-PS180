@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.masaala.R
 import com.capstone.masaala.data.adapter.DummyAdapter
 import com.capstone.masaala.data.dummy.DummyItem
+import com.capstone.masaala.data.dummy.DummyItemData
 import com.capstone.masaala.databinding.FragmentHomeBinding
 import com.capstone.masaala.databinding.FragmentListBinding
 import com.capstone.masaala.ui.image.ImageActivity
@@ -38,11 +39,15 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        item.addAll(DummyItemData.listData)
+
         binding.rvSpice.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             dummyAdapter = DummyAdapter(item)
             adapter = dummyAdapter
         }
+
     }
 }
