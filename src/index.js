@@ -1,36 +1,34 @@
 const express = require('express');
-const multer = require('multer');
+const spiceRouter = require('./routes/spiceRoutes');
 require('dotenv').config();
+const PredictionService = require('./services/PredictionService');
+const tfjs = require('@tensorflow/tfjs');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './upload');
-  },
-  filename: (req, file, cb) => {
-    const uniqueName = `${+new Date()}}`;
-    cb(null, `image-${uniqueName}.${file.originalname}`);
-  },
-});
+/**
+Black Pepper
+Candlenut
+Chili
+Cinnamon
+Garlic
+Rosemary
+Star Anise
+Turmeric
+White Pepper
+*/
 
-const upload = multer({
-  storage,
-});
+const main = async () => {
+  const app = express();
+  const model = await tfjs.loadLayersModel('https://storage.googleapis.com/masaala-stream-bq/masaala-model/tfjs/model.json');
+  const predictionService = new PredictionService(model);
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
+  app.use('/image', express.static('./upload'));
+  app.use(spiceRouter);
 
-const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use('/image', express.static('./upload'));
-app.get('/', (req, res) => {
-  res.send('test');
-})
-
-app.post('/', upload.single('test'), (req, res) => {
-  console.log(req.file);
-  res.send(req.file);
-});
-
-const port = process.env.SERVER_PORT || 8080;
-
-app.listen(port, () => {
-    console.log(`server running on ${port}`);
-})
+  const port = Number(process.env.SERVER_PORT) || 8080;
+  app.listen(port, () => {
+    console.log(`serve
+    r running on ${port}`);
+  });
+};
+main();
