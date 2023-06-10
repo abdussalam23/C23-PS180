@@ -117,14 +117,15 @@ class ImageActivity : AppCompatActivity() {
                             val responseBody = response.body()
                             if (responseBody != null) {
                                 val spicename = responseBody.result?.className
-                                binding.tvImage.text = spicename ?: ""
+                                binding.tvImage.text = spicename ?: "Sorry as for the moment we cannot classify the spice you provided."
                             }
                         } else {
-                            Toast.makeText(this@ImageActivity, "Gagal On Response", Toast.LENGTH_SHORT).show()
+                            binding.tvImage.text = "Sorry as for the moment we cannot classify the spice you provided."
                         }
                     }
                     override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
-                        Toast.makeText(this@ImageActivity,  t.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ImageActivity,  "Error", Toast.LENGTH_SHORT).show()
+                        binding.tvImage.text = "Sorry as for the moment we cannot classify the spice you provided."
                     }
                 })
         }
