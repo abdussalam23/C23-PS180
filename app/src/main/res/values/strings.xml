@@ -7,4 +7,6 @@
     <string name="title_activity_image">ImageActivity</string>
     <string name="btn_label_camera">Camera</string>
     <string name="btn_label_gallery">Gallery</string>
+    <string name="btn_label_upload">Upload</string>
+    <string name="tvimage_placeholder">Take a Picture or Upload an Image of a Spice</string>
 </resources>

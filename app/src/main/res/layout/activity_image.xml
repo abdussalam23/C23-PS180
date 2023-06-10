@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_regular"
-        android:text="Take a Picture or Upload an Image of a Spice"
+        android:text="@string/tvimage_placeholder"
         android:textColor="@color/text_color1"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"

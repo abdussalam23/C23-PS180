@@ -13,7 +13,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.capstone.masaala.data.api.ApiConfig
+import com.capstone.masaala.data.model.UploadResponse
 import com.capstone.masaala.databinding.ActivityImageBinding
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
 
 class ImageActivity : AppCompatActivity() {
@@ -87,6 +95,41 @@ class ImageActivity : AppCompatActivity() {
         launcherIntentGallery.launch(chooser)
     }
 
+    private fun uploadImage() {
+        binding.tvImage.text = "Classifying..."
+        if (getFile != null) {
+
+            val file = reduceFileImage(getFile as File)
+            val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
+            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                "spice",
+                file.name,
+                requestImageFile)
+
+            val apiService = ApiConfig.getApiService()
+            apiService.uploadImage(imageMultipart)
+                .enqueue(object : Callback<UploadResponse> {
+                    override fun onResponse(
+                        call: Call<UploadResponse>,
+                        response: Response<UploadResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val responseBody = response.body()
+                            if (responseBody != null) {
+                                val spicename = responseBody.result?.className
+                                binding.tvImage.text = spicename ?: ""
+                            }
+                        } else {
+                            Toast.makeText(this@ImageActivity, "Gagal On Response", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+                        Toast.makeText(this@ImageActivity,  t.message, Toast.LENGTH_SHORT).show()
+                    }
+                })
+        }
+    }
+
     private var getFile: File? = null
 
     private lateinit var currentPhotoPath: String
@@ -103,7 +146,7 @@ class ImageActivity : AppCompatActivity() {
 //                BitmapFactory.decodeFile(myFile.path),
 //                true
 //            )
-
+            uploadImage()
             binding.ivUploadPhoto.setImageBitmap(result)
         }
     }
@@ -115,6 +158,7 @@ class ImageActivity : AppCompatActivity() {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@ImageActivity)
             getFile = myFile
+            uploadImage()
             binding.ivUploadPhoto.setImageURI(selectedImg)
         }
     }
