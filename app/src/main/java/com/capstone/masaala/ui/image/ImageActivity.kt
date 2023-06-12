@@ -124,7 +124,7 @@ class ImageActivity : AppCompatActivity() {
                         }
                     }
                     override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
-                        Toast.makeText(this@ImageActivity,  "Error", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ImageActivity,  t.message, Toast.LENGTH_SHORT).show()
                         binding.tvImage.text = "Sorry as for the moment we cannot classify the spice you provided."
                     }
                 })
