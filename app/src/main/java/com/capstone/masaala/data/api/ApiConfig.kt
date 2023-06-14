@@ -17,6 +17,7 @@ class ApiConfig {
             }
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                //Added Timeout
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
